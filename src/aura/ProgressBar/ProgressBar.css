@@ -1,0 +1,21 @@
+.THIS  {
+}
+.THIS .step1 {
+    width:260px;
+}
+.THIS .step2 {
+    width:520px;
+}
+.THIS .step3 {
+    width:780px;
+}
+.THIS .step4 {
+    width:1050px;
+}
+
+.THIS .tooltip {
+    display: none;
+}
+.THIS .default {
+    width:0px;
+}

@@ -1,0 +1,57 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+    <aura:attribute name="iconForStep1" type="String" default="utility:progress" />
+    <aura:attribute name="iconForStep2" type="String" default="utility:progress" />
+    <aura:attribute name="iconForStep3" type="String" default="utility:progress" />
+    <aura:attribute name="iconForStep4" type="String" default="utility:progress" />
+    <aura:attribute name="iconForStep5" type="String" default="utility:progress" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    
+    <div class="demo-only" style="padding: 3rem 1rem 0px; background: rgb(244, 246, 249);">
+        <div class="slds-progress slds-progress_shade">
+            <ol class="slds-progress__list">
+                
+                <li class="slds-progress__item">
+                    <lightning:buttonIcon aura:id="step1" iconName="{!v.iconForStep1}" class="slds-progress__marker slds-progress__marker_icon" size="small" alternativeText="Step 1 - Completed" />
+                </li>
+                <li class="slds-progress__item">
+                    <lightning:buttonIcon aura:id="step2" iconName="{!v.iconForStep2}" class="slds-progress__marker slds-progress__marker_icon" size="small" alternativeText="Step 2 - Error"/>
+                </li>
+                <li class="slds-progress__item">
+                    <lightning:buttonIcon aura:id="step3" iconName="{!v.iconForStep3}" class="slds-progress__marker slds-progress__marker_icon" size="small" alternativeText="Step 3"/>
+                </li>
+                <li class="slds-progress__item">
+                    <lightning:buttonIcon aura:id="step4" iconName="{!v.iconForStep4}" class="slds-progress__marker slds-progress__marker_icon" size="x-small" alternativeText="Step 4"/>
+                </li>
+                <li class="slds-progress__item">
+                    <lightning:buttonIcon aura:id="step5" iconName="{!v.iconForStep5}" class="slds-progress__marker slds-progress__marker_icon" size="x-small" alternativeText="Step 5"/>
+                </li>
+            </ol>
+            
+            <!-- this is for the line in between the dots -->
+            <div  class="slds-progress-bar slds-progress-bar_small" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" role="progressbar">
+                <span aura:id="progress" class="slds-progress-bar__value">
+                </span>
+            </div>
+        </div>
+        
+        
+        <div aura:id="tooltip">
+            <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom" role="tooltip" style="position: absolute; top: 5px; left: calc(83% + 8px); transform: translateX(-50%);">
+                <div class="slds-popover__body">Done</div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="demo-only" style="padding: 3rem 1rem 0px; background: rgb(244, 246, 249); position: absolute; left: calc(30% + 15px);">
+        <button class="slds-button slds-button_brand" onclick="{!c.step1Check}">Step 1 Check</button>
+        <button class="slds-button slds-button_brand" onclick="{!c.step2Check}">Step 2 Check</button>
+        <button class="slds-button slds-button_brand" onclick="{!c.step3Check}">Step 3 Check</button>
+        <button class="slds-button slds-button_brand" onclick="{!c.step4Check}">Step 4 Check</button>
+        <button class="slds-button slds-button_brand" onclick="{!c.step5Check}">Step 5 Check</button>
+        
+    </div>
+</aura:component>
